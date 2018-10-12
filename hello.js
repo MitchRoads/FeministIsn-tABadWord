@@ -16,7 +16,7 @@ client.on('message', async (message) => {
 if (message.content.startsWith(`${prefix}hello`)) {
   let helloEmbed = new Discord.RichEmbed()
   .setTitle("Hello hello!")
-  .setColor(color)
+  .setColor("#BA55D3")
   .setField(`Hello member. How are you doing today?`)
   message.channel.send(helloEmbed)
 }
