@@ -11,7 +11,7 @@ client.user.setActivity(`King's Raid`);
 });
 
 client.on('message', async (message) => {
-  const color = require('../botconfig.json');
+  const color = require('./botconfig.json');
 
 if (message.content.startsWith(`${prefix}hello`)) {
   let helloEmbed = new Discord.RichEmbed()
