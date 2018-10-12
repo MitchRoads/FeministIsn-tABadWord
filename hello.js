@@ -31,8 +31,7 @@ if(!user) return message.channel.send("You didn't mention anyone..?");
     let avatarEmbed = new Discord.RichEmbed()
     .setAuthor(`${user.username}'s Profile Picture`)
     .setImage(user.displayAvatarURL)
-    .setColor("#BA55D3")
-    .setTimestamp();
+    .setColor("#BA55D3");
     message.channel.send(avatarEmbed);
 }
   
