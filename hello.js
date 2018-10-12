@@ -18,7 +18,8 @@ if (message.content.startsWith(`${prefix}hello`)) {
   .setTitle("Hello hello!")
   .setColor("#BA55D3")
   .setField(`Hello member. How are you doing today?`)
-  message.channel.send(helloEmbed)
+  .setTimestamp();
+  message.channel.send(helloEmbed);
 }
   
 });
