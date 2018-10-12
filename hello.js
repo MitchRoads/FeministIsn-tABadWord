@@ -11,9 +11,14 @@ client.user.setActivity(`King's Raid`);
 });
 
 client.on('message', async (message) => {
+  const color = require('../botconfig.json');
 
 if (message.content.startsWith(`${prefix}hello`)) {
-  return message.channel.send(`Hello member. How are you doing today?`)
+  let helloEmbed = new Discord.RichEmbed()
+  .setTitle("Hello hello!")
+  .setColor(color)
+  .setField(`Hello member. How are you doing today?`)
+  message.channel.send(helloEmbed)
 }
   
 });
