@@ -6,7 +6,7 @@ const { prefix, token } = require('./botconfig.json');
 
 client.on(`ready`, () => {
   console.log(`I am ready to say hello to the world.`);
-client.user.setActivity(`King's Raid`);
+client.user.setActivity("King's Raid OST", {type: "LISTENING"});
 
 });
 
