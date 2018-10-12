@@ -14,9 +14,9 @@ client.on('message', async (message, member) => {
   
   if (message.content.startsWith(`${prefix}hello`)) {
 	let helloEmbed = new Discord.RichEmbed()
-	.setTitle("Hello hello!") 	 
-	.setColor("#BA55D3")
-.setField("Hello member, how are you doing today?")
+	.setAuthor("Hello ${user.username}!") 
+	.setDescription(`"Hello member, how are you doing today?`)
+	.setColor("#BA55D3")  
 	.setFooter(`Bot Version: 1.0.3, requested by ${message.author.tag}`)
 	.setTimestamp();
 	  message.channel.send(helloEmbed);
