@@ -16,10 +16,11 @@ if (message.content.startsWith(`${prefix}hello`)) {
   let helloEmbed = new Discord.RichEmbed()
   .setTitle("Hello hello!")
   .setColor("#BA55D3")
-  .setField(`Hello member. How are you doing today?`)
+  .setField("Hello member, how are you doing today?")
   .setTimestamp();
   message.channel.send(helloEmbed);
 }
+  
   
 });
 
