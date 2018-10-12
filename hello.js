@@ -21,6 +21,19 @@ client.on('message', async (message, member) => {
 	.setTimestamp();
 	  message.channel.send(helloEmbed);
 }
+	
+	
+
+	
+	  if (message.content.startsWith(`${prefix}avatar`)) { 
+	   let user = message.mentions.users.first(); 
+if(!user) return message.channel.send("You didn't mention anyone..?"); 
+    let avatarEmbed = new Discord.RichEmbed()
+    .setAuthor(`${user.username}'s Profile Picture`)
+    .setImage(user.displayAvatarURL)
+    .setColor("#BA55D3")
+    .setTimestamp();
+    message.channel.send(avatarEmbed);
   
   
 });
