@@ -34,6 +34,7 @@ if(!user) return message.channel.send("You didn't mention anyone..?");
     .setColor("#BA55D3")
     .setTimestamp();
     message.channel.send(avatarEmbed);
+}
   
   
 });
