@@ -15,7 +15,7 @@ client.user.setActivity("To All Sides", {type: "LISTENING"});
 client.on('message', async (message) => {
 
  if (message.content.toLowerCase().startsWith(`${prefix}hello`)) {
-	 let replies = [`Hello ${message.author.user}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello! 😄", "Hello! Need a server invite? Do f!serverinvite for one! 📨",];
+	 let replies = [`Hello ${message.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello! 😄", "Hello! Need a server invite? Do f!serverinvite for one! 📨",];
 let result = Math.floor((Math.random() * replies.length));
 	let helloEmbed = new Discord.RichEmbed()
 	.setDescription(replies[result])
@@ -41,7 +41,7 @@ let result = Math.floor((Math.random() * replies.length));
     let serverembed = new Discord.RichEmbed()
     .setTitle("👑 Server Information")
     .setDescription(`Information on ${server}:`)
-    .setColor(0x374f6b)
+    .setColor("#FFC0CB")
     .addField('Server ID', message.guild.id, true)
     .addField('Server Name', message.guild.name, true)
     .addField('Humans', `${message.guild.members.filter(m => !m.user.bot).size}`, true)
@@ -67,7 +67,7 @@ let result = Math.floor((Math.random() * replies.length));
             let userEmbed = new Discord.RichEmbed()
             .setAuthor(`${user.username}'s Info`, user.displayAvatarURL)
             .setThumbnail(user.displayAvatarURL)
-            .setColor('#2B547E')
+            .setColor("#FFC0CB")
             .addField('User ID', user.id, true)
             .addField('Current Tag', user.tag, true)
             .addField('Server Nickname', `${player.displayName}`, true) 
@@ -89,7 +89,7 @@ let result = Math.floor((Math.random() * replies.length));
     let botembed = new Discord.RichEmbed()
     .setTitle("🤖 Bot Information")
     .setDescription("Information on WeatherDawn:")
-    .setColor(0x374f6b)
+    .setColor("#FFC0CB")
     .setThumbnail(bicon)
     .addField("Bot ID", client.user.id, true)
     .addField("Bot Tag", client.user.tag, true)
@@ -111,6 +111,19 @@ let result = Math.floor((Math.random() * replies.length));
     message.channel.send(`📩 Invite Sucessfully sent to your DMs. `)
     
   }
+});
+	client.on('guildMemberAdd', (member, message) => {
+	 if (message.channel.type == "dm") return;
+  let guild = member.guild;
+  let server = member.guild.name;
+  let gembed = new Discord.RichEmbed()
+      .setTitle("User Enterance")
+      .setColor("#FFC0CB")
+      .setDescription(`Welcome ${member}, to **${server}**, hope you enjoy your stay.`)
+      .setTimestamp();
+    message.channel.send(gembed)().then(a =>
+    message.author.send(a.toString()))
+	      });
 	
   
   
