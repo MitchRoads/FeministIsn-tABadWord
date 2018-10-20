@@ -17,7 +17,7 @@ client.on('message', async (message) => {
   if (message.content.startsWith(`${prefix}hello`)) {
 	  let player = message.mentions.members.first() || message.member
   let user = player.user
-	 let replies = [`Hello ${user.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!",];
+	 let replies = [`Hello ${message.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!",];
 let result = Math.floor((Math.random() * replies.length));
 	let helloEmbed = new Discord.RichEmbed()
 	.setDescription(replies[result])
@@ -26,17 +26,15 @@ let result = Math.floor((Math.random() * replies.length));
 	  message.channel.send(helloEmbed);
 }
 	
-	
-
-	
-	  if (message.content.startsWith(`${prefix}avatar`)) { 
-	   let user = message.mentions.users.first(); 
-if(!user) return message.channel.send("You didn't mention anyone..?"); 
+	 if (message.content.startsWith(`${prefix}avatar`)) { 
+      let player = message.mentions.members.first() || message.member
+	   let user = player.user
     let avatarEmbed = new Discord.RichEmbed()
-    .setAuthor(`${user.username}'s Profile Picture`)
+    .setAuthor(`${user.tag}`, `${user.displayAvatarURL}`)
+    .setTitle('Profile Picture')
     .setImage(user.displayAvatarURL)
     .setColor("#FFC0CB");
-    message.channel.send(avatarEmbed);
+    return message.channel.send(avatarEmbed);
 }
   
   
