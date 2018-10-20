@@ -112,8 +112,8 @@ let result = Math.floor((Math.random() * replies.length));
     
   }
 	if (message.content.toLowerCase().startsWith(`${prefix}definefeminism`)) {
-    let sicon = message.guild.iconURL;
     let server = message.guild.name;
+    let servericon = "https://i.imgur.com/mi3f0yt.png";
     let feministembed = new Discord.RichEmbed()
     .setTitle("<:happy:503338404877172757> Feminism Still Isn't A Bad Word")
     .setURL('https://www.merriam-webster.com/dictionary/feminism')
@@ -127,7 +127,7 @@ let result = Math.floor((Math.random() * replies.length));
     .addField('Why should I be a feminist?', `While you don't *need* to be a feminist to believe in equal rights for men and women, having the label as a feminist makes you sound more believable especially with how bad things are right now.`, true)
     .setImage("https://i.imgur.com/mi3f0yt.png")
     .setFooter(`${server}`, `${client.user.displayAvatarURL}`)
-    .setThumbnail(sicon) 
+    .setThumbnail(servericon) 
     .setTimestamp();
     return message.channel.send(feministembed);
 }	
