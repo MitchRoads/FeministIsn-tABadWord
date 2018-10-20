@@ -12,7 +12,7 @@ client.user.setActivity("To All Sides", {type: "LISTENING"});
 
 });
 
-client.on('message', async (message) => {
+client.on('message', async (message, member) => {
 
  if (message.content.toLowerCase().startsWith(`${prefix}hello`)) {
 	 let replies = [`Hello ${message.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello! 😄", "Hello! Need a server invite? Do f!serverinvite for one! 📨",];
@@ -35,7 +35,7 @@ let result = Math.floor((Math.random() * replies.length));
     return message.channel.send(avatarEmbed);
 }
 	
-	if (message.content.startsWith(`${prefix}serverinfo`)) {		
+	 if (message.content.toLowerCase().startsWith(`${prefix}serverinfo`)) {		
     let sicon = message.guild.iconURL;
     let server = message.guild.name;
     let serverembed = new Discord.RichEmbed()
@@ -59,7 +59,7 @@ let result = Math.floor((Math.random() * replies.length));
   }
 	
 			
-            if (message.content.startsWith(`${prefix}userinfo`)) { 
+            if (message.content.toLowerCase().startsWith(`${prefix}userinfo`)) { 
             let player = message.mentions.members.first() || message.member
             let iicon = player.user.displayAvatarURL;
             let roles = player.roles.map(role => role).join(" ");
@@ -83,7 +83,7 @@ let result = Math.floor((Math.random() * replies.length));
 	return message.channel.send(userEmbed);
 	}
 	
-	  if (message.content.startsWith(`${prefix}botinfo`)) {
+ if (message.content.toLowerCase().startsWith(`${prefix}botinfo`)) {
     let player = message.mentions.members.first() || message.member
     let bicon = client.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
@@ -103,7 +103,7 @@ let result = Math.floor((Math.random() * replies.length));
     return message.channel.send(botembed);
   }      
 	
-	    if (message.content.startsWith(`${prefix}serverinvite`)) {
+	     if (message.content.toLowerCase().startsWith(`${prefix}serverinvite`)) {
       if (message.channel.type == "dm") return;
 
     message.channel.createInvite().then(a =>
@@ -111,14 +111,34 @@ let result = Math.floor((Math.random() * replies.length));
     message.channel.send(`📩 Invite Sucessfully sent to your DMs. `)
     
   }
+	if (message.content.toLowerCase().startsWith(`${prefix}definefeminism`)) {
+    let sicon = message.guild.iconURL;
+    let server = member.guild.name;
+    let feministembed = new Discord.RichEmbed()
+    .setTitle("<:happy:503338404877172757> Feminism Still Isn't A Bad Word")
+    .setURL('https://www.merriam-webster.com/dictionary/feminism')
+    .setDescription(`Information about Feminism:`)
+    .setColor("#FFC0CB")
+    .addField('What does actually Feminism mean?', `According to the dictinoary, feminism is the theory of the political, economic, and social equality of the sexes.`, true)
+    .addField('How long has feminism been around?', `The feminist movement has been around since 1841 (first wave feminism), but it didn't get much attention until around the 1960s and 1970s when it sparked back up again and when changes started to happen for women to have more right then they had a the time. This was known as the women's movement at the time (second wave feminism).`, true)
+    .addField('Why do we still need feminism?' , `Because women don't have equal rights as men do, this is a fact.` , true)
+    .addField('Why are radical feminists so focused on?', `The simple reason this is because of memes and people not taking feminist seriously as it should be. Seeing how most of these people are men who do this it isn't surprising.`, true)
+    .addField('Is feminism, BLM (black lives matter), and LGBT+ the same thing?', `Most people who support feminism are most likely a supporter of the LGBT+ or BLM for they all want the same thing in the end, equal rights no matter of gender, sex, creed, or color. But they are also aiming for something different in their own way so while they have a similiar goal, they aren't all the same.`, true)
+    .addField('Why should I be a feminist?', `While you don't *need* to be a feminist to believe in equal rights for men and women, having the label as a feminist makes you sound more believable especially with how bad things are right now.`, true)
+    .setImage("https://i.imgur.com/kpteGYu.png")
+    .setFooter(`${server}`, `${client.user.displayAvatarURL}`)
+    .setThumbnail(sicon) 
+    .setTimestamp();
+    return message.channel.send(feministembed);
+}	
 });
 	client.on('guildMemberAdd', (member) => {
   let guild = member.guild;
   let server = member.guild.name;
   let gembed = new Discord.RichEmbed()
-      .setTitle("User Enterance")
+      .setTitle(`${server}`)
       .setColor("#FFC0CB")
-      .setDescription(`Welcome ${member}, to **${server}**, hope you enjoy your stay.`)
+      .setDescription(`Welcome to feminist Isn't A Bad Word! Our goal is to keep every avanue of speach open when talking about feminist ideals. We allow anyone to talk and speak! We do not ban though we do police the server to an intent.  I mean the 200 Nazi sign isnt funny. Anyways, make sure if you get accepted into the server to check out the f!definefeminism command to learn about what feminism actually means.`)
       .setTimestamp();
     member.send(gembed)
 	      });
