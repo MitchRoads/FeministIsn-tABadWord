@@ -15,7 +15,7 @@ client.user.setActivity("To All Sides", {type: "LISTENING"});
 client.on('message', async (message) => {
 
  if (message.content.toLowerCase().startsWith(`${prefix}hello`)) {
-	 let replies = [`Hello ${message.author.user}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!", "Hello! Need a server invite? Do f!serverinvite for one!];
+	 let replies = [`Hello ${message.author.user}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello! 😄", "Hello! Need a server invite? Do f!serverinvite for one! 📨",];
 let result = Math.floor((Math.random() * replies.length));
 	let helloEmbed = new Discord.RichEmbed()
 	.setDescription(replies[result])
@@ -108,7 +108,7 @@ let result = Math.floor((Math.random() * replies.length));
 
     message.channel.createInvite().then(a =>
     message.author.send(a.toString()))
-    message.channel.send(`📥 Invite Sucessfully sent to your DMs. `)
+    message.channel.send(`📩 Invite Sucessfully sent to your DMs. `)
     
   }
 	
