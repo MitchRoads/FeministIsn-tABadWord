@@ -16,7 +16,7 @@ client.on('message', async (message, member) => {
   	   let user = message.mentions.users.first(); 
 	
   if (message.content.startsWith(`${prefix}hello`)) {
-	 let replies = ["Hello ${member.author.tag}! I hope you are enjoying your time here. 😄", "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!",];
+	 let replies = [`Hello ${member.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!",];
 let result = Math.floor((Math.random() * replies.length));
 	let helloEmbed = new Discord.RichEmbed()
 	.setDescription(replies[result])
