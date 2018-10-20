@@ -124,9 +124,4 @@ let result = Math.floor((Math.random() * replies.length));
     message.channel.send(gembed)().then(a =>
     message.author.send(a.toString()))
 	      });
-	
-  
-  
-});
-
 client.login(process.env.BOT_TOKEN);
