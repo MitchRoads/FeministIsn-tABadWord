@@ -21,7 +21,6 @@ let result = Math.floor((Math.random() * replies.length));
 	let helloEmbed = new Discord.RichEmbed()
 	.setDescription(replies[result])
 	.setColor("#FFC0CB") 
-        .setFooter(`Said Hello To ${member.author.tag}`)
 	.setTimestamp();
 	  message.channel.send(helloEmbed);
 }
