@@ -12,11 +12,12 @@ client.user.setActivity("To All Sides", {type: "LISTENING"});
 
 });
 
-client.on('message', async (message, member) => {
-  	   let user = message.mentions.users.first(); 
-	
+client.on('message', async (message) => {
+
   if (message.content.startsWith(`${prefix}hello`)) {
-	 let replies = [`Hello ${member.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!",];
+	  let player = message.mentions.members.first() || message.member
+  let user = player.user
+	 let replies = [`Hello ${user.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello!",];
 let result = Math.floor((Math.random() * replies.length));
 	let helloEmbed = new Discord.RichEmbed()
 	.setDescription(replies[result])
