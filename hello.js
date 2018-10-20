@@ -12,7 +12,7 @@ client.user.setActivity("To All Sides", {type: "LISTENING"});
 
 });
 
-client.on('message', async (message, member) => {
+client.on('message', async (message) => {
 
  if (message.content.toLowerCase().startsWith(`${prefix}hello`)) {
 	 let replies = [`Hello ${message.author.tag}! I hope you are enjoying your time here. 😄`, "Hello! How are you? 😄", "Hello! I hope you are behaving yourself. 😄", "Hello! Staying out of trouble I hope. 😄", "Hello! 😄", "Hello! Need a server invite? Do f!serverinvite for one! 📨",];
@@ -113,7 +113,7 @@ let result = Math.floor((Math.random() * replies.length));
   }
 	if (message.content.toLowerCase().startsWith(`${prefix}definefeminism`)) {
     let sicon = message.guild.iconURL;
-    let server = member.guild.name;
+    let server = message.guild.name;
     let feministembed = new Discord.RichEmbed()
     .setTitle("<:happy:503338404877172757> Feminism Still Isn't A Bad Word")
     .setURL('https://www.merriam-webster.com/dictionary/feminism')
