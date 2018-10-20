@@ -112,8 +112,7 @@ let result = Math.floor((Math.random() * replies.length));
     
   }
 });
-	client.on('guildMemberAdd', (member, message) => {
-	 if (message.channel.type == "dm") return;
+	client.on('guildMemberAdd', (member) => {
   let guild = member.guild;
   let server = member.guild.name;
   let gembed = new Discord.RichEmbed()
@@ -121,7 +120,6 @@ let result = Math.floor((Math.random() * replies.length));
       .setColor("#FFC0CB")
       .setDescription(`Welcome ${member}, to **${server}**, hope you enjoy your stay.`)
       .setTimestamp();
-    message.channel.send(gembed)().then(a =>
-    message.author.send(a.toString()))
+    member.send(gembed)
 	      });
 client.login(process.env.BOT_TOKEN);
