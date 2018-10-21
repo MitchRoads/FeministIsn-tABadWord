@@ -165,6 +165,17 @@ let result = Math.floor((Math.random() * replies.length));
         .setFooter(`Ping request: ${message.author.tag}`);      
     return message.channel.send(pingembed);
 	}
+		if (message.content.toLowerCase().startsWith(`${prefix}purge`)) {
+		let args = message.content.split(/ +/g).slice(1)
+	if (isNaN(args[0])) return message.channel.send(`How many messages do you want deleted?`);
+if (args[0] > 100) return message.channel.send(`I can only delete 1 to 100 messages at a time.`);
+message.channel.bulkDelete(args[0])
+ .then(message => message.channel.send(`Successfully deleted **\`${message.size}/${args[0]}\`** messages.`).then(message => message.delete({ timeout: 10000 })))
+.catch(error => message.channel.send(`**ERROR** ${error.message}`));
+
+}
+
+
 	
 		if (message.content.toLowerCase().startsWith(`${prefix}support`)) {
     let server = message.guild.name;
@@ -215,7 +226,7 @@ let result = Math.floor((Math.random() * replies.length));
 }
    await(tomute.addRole(muterole.id));
    let muteaddembed = new Discord.RichEmbed()
-   .setDescription(`${user.tag} just got themselves shushed!`)
+   .setDescription(`${user.tag} has been successfully shushed!`)
    .setColor("#FFC0CB")
    .setTimestamp();
    return message.channel.send(muteaddembed);
