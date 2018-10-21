@@ -169,6 +169,7 @@ let result = Math.floor((Math.random() * replies.length));
 		let args = message.content.split(/ +/g).slice(1)
 	if (isNaN(args[0])) return message.channel.send(`How many messages do you want deleted?`);
 if (args[0] > 100) return message.channel.send(`I can only delete 1 to 100 messages at a time.`);
+message.channel.bulkDelete(args[0]).then(() => {
 message.channel.send(`Successfully deleted ${args[0]} messages.`).then(message => message.delete(5000));
 			
 
