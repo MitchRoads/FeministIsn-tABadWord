@@ -285,7 +285,7 @@ if(nxtLvl <= db[message.author.id].db){
 }
 	
 	
-const blacklisted = ['Nigga', 'Nigger', 'Tranny', 'Cunt', 'Cumdump', 'Cum Dumpster', 'Bitch', 'Feminazi', 'Retarded', 'Whore', 'Slut', 'Hoe', 'Ghetto', 'Ratchet',];
+const blacklisted = ['Nigga', 'Nigger', 'Tranny', 'Cunt', 'Cumdump', 'Cum Dumpster', 'Bitch', 'Feminazi', 'Retarded', 'Whore', 'Slut', 'Hoe', 'Ghetto', 'Ratchet', 'Cracker',];
 let foundInText = false;
  for (var i in blacklisted) {
   if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
