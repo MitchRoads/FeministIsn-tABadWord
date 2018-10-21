@@ -257,7 +257,8 @@ if(nxtLvl <= db[message.author.id].db){
   let lvlup = new Discord.RichEmbed()
   .setTitle("<:levelup:503391958203629579> You've leveled up! Keep up with the conversations!")
   .setColor("#FFC0CB")
-  .addField("New Level!", curlvl + 1);
+  .addField("New Level!", curlvl + 1)
+  .setTimestamp();
   message.channel.send(lvlup).then(message => {message.delete(10000)})
 }
 		
@@ -278,8 +279,9 @@ if(nxtLvl <= db[message.author.id].db){
   .setAuthor(`${user.tag}'s Level & XP`, `${user.displayAvatarURL}`)
   .setColor("#FFC0CB")
   .addField("Level", curlvl, true)
-  .addField("XP", curxp, true)
-  .setFooter(`${difference} XP until level up`, user.displayAvatarURL);
+  .addField("XP Points", curxp, true)
+  .setFooter(`${difference} XP until level up`, user.displayAvatarURL)
+  .setTimestamp();
   message.channel.send(lvlEmbed);
 
 }
