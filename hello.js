@@ -4,6 +4,7 @@ const request = require('snekfetch');
 const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const moment = require('moment');
+const ms = require("ms");
 require('moment-duration-format');
 
 client.on(`ready`, () => {
@@ -182,7 +183,26 @@ let result = Math.floor((Math.random() * replies.length));
     .setThumbnail(shellicon) 
     .setTimestamp();
     return message.channel.send(feministembed);
-}	
+}
+		
+		if (message.content.toLowerCase().startsWith(`${prefix}shush`)) {
+	let server = message.guild.name;
+	let args = message.content.split(/ +/g).slice(1)
+	let player = message.mentions.members.first() || message.member
+	let user = player.user
+   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+   if(!tomute) return message.reply("Mention a user to use this command.");
+   if(tomute.hasPermission("MANAGE_MESSAGES"))
+   return message.channel.send("This user cannot be muted due to either having the same rank as you or higher.");
+   let muterole = message.guild.roles.find(`name`, "Shushed");
+   let muteaddembed = new Discord.RichEmbed()
+   .setDescription(`${user.tag} just got themselves shushed!`)
+   .setColor("#FFC0CB")
+   .setTimestamp();
+   return message.channel.send(muteaddembed);
+}
+
+
 	
 	let xp = require("./xp.json");
 	let xpAdd = Math.floor(Math.random() * 7) + 8;
@@ -255,4 +275,56 @@ if (foundInText) {
       .setTimestamp();
     member.send(welcomeembed)
 	      });
+
+client.on('guildMemberAdd', (member) => {
+	
+  let guild = member.guild;
+  let server = member.guild.name;
+  let logging = guild.channels.find(c => c.name === 'logs');
+  let jembed = new Discord.RichEmbed()
+      .setTitle("User Enterance")
+      .setColor("#FFC0CB")
+      .setDescription(`${member} has joined ${server}.`)
+      .setTimestamp();
+  logging.send(jembed);
+	      });
+
+client.on('guildMemberRemove', (member) => {
+	
+ let guild = member.guild;
+  let server = member.guild.name;
+  let logging = guild.channels.find(c => c.name === 'logs');
+  let rembed = new Discord.RichEmbed()
+      .setTitle("User Departure")
+      .setColor("#FFC0CB")
+      .setDescription(`${member} has left ${server}.`)
+      .setTimestamp();
+  logging.send(rembed);
+	      });
+
+
+client.on('messageDelete', async (message) => {
+    let logging = message.guild.channels.find(c => c.name === 'logging');
+    const dembed = new Discord.RichEmbed()
+        .setTitle("Message Deleted")
+        .setColor("#FFC0CB")
+        .setDescription(`A message sent by ${message.author} was deleted in ${message.channel}`)
+        .addField("Message:", `${message.cleanContent}`)
+        .setTimestamp();
+    logging.send(dembed);
+});
+
+client.on("messageUpdate", function (oldMessage, newMessage, channel) {
+    if (newMessage.channel.type == 'text' && newMessage.cleanContent != oldMessage.cleanContent) {
+        let logging = newMessage.guild.channels.find(c => c.name === 'logging');
+        const upembed = new Discord.RichEmbed()
+            .setTitle("Message Edited")
+            .setColor("#FFC0CB")
+            .setDescription(`A message sent by ${newMessage.author} was edited in ${newMessage.channel}`)
+            .addField(`Old message:`, `${oldMessage.cleanContent}`)
+            .addField(`New Message:`, `${newMessage.cleanContent}`)
+            .setTimestamp();
+        logging.send(upembed);
+    }
+});
 client.login(process.env.BOT_TOKEN);
