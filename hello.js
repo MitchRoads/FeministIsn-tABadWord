@@ -8,7 +8,7 @@ require('moment-duration-format');
 
 client.on(`ready`, () => {
   console.log(`Feminism Is POWER!`);
-client.user.setActivity("To All Sides", {type: "LISTENING"});
+client.user.setActivity("All Sides (f!help)", {type: "LISTENING"});
 
 });
 
@@ -76,7 +76,7 @@ let result = Math.floor((Math.random() * replies.length));
             .addField('Game/Playing', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'None'}`, true)
             .addField('Status', user.presence.status, true)
             .addField('Bot', user.bot, true)
-            .addField('Joined At:', `${player.joinedAt}`)
+            .addField('Joined Server At:', `${player.joinedAt}`)
             .addField('Account Created On:', `${player.user.createdAt}`)
             .setThumbnail(iicon)
             .setTimestamp();
@@ -97,7 +97,6 @@ let result = Math.floor((Math.random() * replies.length));
     .addField("Users", client.users.size, true)
     .addField("Date Of Creation", client.user.createdAt.toLocaleDateString(), true)
     .addField("Uptime", moment.duration(client.uptime).format('d[d ]h[h ]m[m ]s[s]'), true)
-    .addField("Server Invite", "https://discord.gg/TGy7d9y", true)
     .setFooter("Created By @Dawn.Bots.INC", client.user.displayAvatarURL)
     .setTimestamp();
     return message.channel.send(botembed);
@@ -131,6 +130,38 @@ let result = Math.floor((Math.random() * replies.length));
     .setTimestamp();
     return message.channel.send(feministembed);
 }	
+	
+		  if (message.content.startsWith(`${prefix}usage`)) {
+	let server = message.guild.name;
+	let helpembed = new Discord.RichEmbed()
+	.setTitle(`<:logo:503355691898241024> Help Menu`)
+	.setDescription('Below are the commands for this bot, enjoy and use them respectfully.')
+	.setColor("#FFC0CB") 
+        .addField('👩 `f!avatar`', "The avatar of a user displays after using this command.")
+        .addField('🤖 `f!botinfo`', "Information on our server bot.")
+        .addField('<:happy:503338404877172757> `f!definefeminism', "Learn about feminism, that is the point of this server after all.")
+	.addField('❓ `f!help`', "A help menu that provides you with the commands of the bot.")
+        .addField('📢 `f!hello`', "Hello! You will get a random hello response.")
+        .addField('🏓 `f!ping`', "Pingggggggg!")
+	.addField('ℹ `f!serverinfo`', `Information about ${server}.`)
+	.addField('✉ `f!serverinvite`', "You will be send an invite to the server.")
+        .addField('💁 `f!userinfo`', "Want info about a person? Such as their roles and how long they have been here?.")
+	.setTimestamp(); 
+	message.channel.send(helpembed);
+	message.react("✅")
+	  }
+	if (message.content.startsWith(`${prefix}ping`)) {
+    let msgping1 = new Date();
+    let clientping = new Date() - message.createdAt;
+    let msgping2 = new Date() - msgping1;
+    let pingembed = new Discord.RichEmbed()
+       .setColor("#FFC0CB")
+        .addField('✉ Ping:', Math.floor(client.ping) + 'ms')
+        .addField('🏓 Bot Ping:', Math.floor(clientping) + 'ms')
+        .addField('🏓 API Ping: ', '~' + Math.round(msgping1) + 'ms')
+        .setTimestamp()
+        .setFooter(`Ping request: ${message.author.tag}`);      
+    return message.channel.send(pingembed);
 });
 	client.on('guildMemberAdd', (member) => {
   let guild = member.guild;
