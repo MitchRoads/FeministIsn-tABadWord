@@ -139,7 +139,7 @@ let result = Math.floor((Math.random() * replies.length));
 	.setColor("#FFC0CB") 
         .addField('👩 `f!avatar`', "The avatar of a user displays after using this command.")
         .addField('🤖 `f!botinfo`', "Information on our server bot.")
-        .addField('<:happy:503338404877172757> `f!definefeminism', "Learn about feminism, that is the point of this server after all.")
+        .addField('<:happy:503338404877172757> `f!definefeminism`', "Learn about feminism, that is the point of this server after all.")
 	.addField('❓ `f!help`', "A help menu that provides you with the commands of the bot.")
         .addField('📢 `f!hello`', "Hello! You will get a random hello response.")
         .addField('🏓 `f!ping`', "Pingggggggg!")
@@ -157,9 +157,8 @@ let result = Math.floor((Math.random() * replies.length));
     let msgping2 = new Date() - msgping1;
     let pingembed = new Discord.RichEmbed()
        .setColor("#FFC0CB")
-        .addField('✉ Ping:', Math.floor(client.ping) + 'ms')
+        .addField('🏓 Ping:', Math.floor(client.ping) + 'ms')
         .addField('🏓 Bot Ping:', Math.floor(clientping) + 'ms')
-        .addField('🏓 API Ping: ', '~' + Math.round(msgping1) + 'ms')
         .setTimestamp()
         .setFooter(`Ping request: ${message.author.tag}`);      
     return message.channel.send(pingembed);
