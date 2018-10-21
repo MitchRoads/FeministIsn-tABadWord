@@ -192,9 +192,10 @@ let result = Math.floor((Math.random() * replies.length));
 	let user = player.user
    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
    if(!tomute) return message.reply("Mention a user to use this command.");
-   if(tomute.hasPermission("MANAGE_MESSAGES"))
+   if(tomute.hasPermission("MANAGE_MESSAGES")) 
    return message.channel.send("This user cannot be muted due to either having the same rank as you or higher.");
-   let muterole = message.guild.roles.find(`name`, "Shushed");
+   let muterole = message.guild.roles.find(r => r.name === "Shushed");
+   await(tomute.addRole(muterole.id));
    let muteaddembed = new Discord.RichEmbed()
    .setDescription(`${user.tag} just got themselves shushed!`)
    .setColor("#FFC0CB")
