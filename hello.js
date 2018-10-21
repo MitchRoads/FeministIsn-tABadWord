@@ -203,13 +203,36 @@ xp[message.author.id].xp =  curxp + xpAdd;
 if(nxtLvl <= xp[message.author.id].xp){
   xp[message.author.id].level = curlvl + 1;
   let lvlup = new Discord.RichEmbed()
-  .setTitle("You've leveled up! Keep up with the conversations! :tada:")
+  .setTitle("<:levelup:503391958203629579> You've leveled up! Keep up with the conversations!")
   .setColor("#FFC0CB")
   .addField("New Level!", curlvl + 1);
-  message.channel.send(lvlup).then(message => {message.delete(5000)})
+  message.channel.send(lvlup).then(message => {message.delete(10000)})
+}
+		
+		if (message.content.toLowerCase().startsWith(`${prefix}level`)) {
+	  if(!xp[message.author.id]){
+    xp[message.author.id] = {
+      xp: 0,
+      level: 1
+    };
+  }
+  let curxp = xp[message.author.id].xp;
+  let curlvl = xp[message.author.id].level;
+  let nxtLvlXp =  curlvl * 300;
+  let difference = nxtLvlXp - curxp;
+
+  let lvlEmbed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#FFC0CB")
+  .addField("<:level:503390231379050506> Level", curlvl, true)
+  .addField("XP", curxp, true)
+  .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
+
+  message.channel.send(lvlEmbed);
+
 }
 	
-const blacklisted = ['Nigga',];
+const blacklisted = ['Nigga', 'Nigger', 'Tranny', 'Cunt', 'Cumdump', 'Cum Dumpster', 'Bitch', 'Feminazi', 'Retarded', 'Whore', 'Slut', 'Hoe', 'Ghetto', 'Ratchet',];
 let foundInText = false;
  for (var i in blacklisted) {
   if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
