@@ -216,7 +216,7 @@ let foundInText = false;
 }
 
 
-if (foundInTtext) {
+if (foundInText) {
  message.delete();
  message.channel.send(`That word is blacklisted!`);
 }
