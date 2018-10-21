@@ -266,6 +266,7 @@ if(nxtLvl <= xp[message.author.id].xp){
       level: 1
     };
   }
+			
   let curxp = xp[message.author.id].xp;
   let curlvl = xp[message.author.id].level;
   let nxtLvlXp =  curlvl * 300;
@@ -277,7 +278,7 @@ if(nxtLvl <= xp[message.author.id].xp){
   .setColor("#FFC0CB")
   .addField("Level", curlvl, true)
   .addField("XP", curxp, true)
-  .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
+  .setFooter(`${difference} XP til level up`, user.displayAvatarURL);
 
   message.channel.send(lvlEmbed);
 
