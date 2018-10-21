@@ -169,8 +169,7 @@ let result = Math.floor((Math.random() * replies.length));
 		let args = message.content.split(/ +/g).slice(1)
 	if (isNaN(args[0])) return message.channel.send(`How many messages do you want deleted?`);
 if (args[0] > 100) return message.channel.send(`I can only delete 1 to 100 messages at a time.`);
-message.channel.bulkDelete(args[0])
-message.channel.send(`Successfully deleted **\`${message.size}/${args[0]}\`** messages.`).then(message => message.delete({ timeout: 10000 }))
+message.channel.send(`Successfully deleted **\`${message.size}/${args[0]}\`** messages.`).then(message => {message.delete(10000)})
 
 			
 
@@ -281,7 +280,6 @@ if(nxtLvl <= xp[message.author.id].xp){
   .addField("Level", curlvl, true)
   .addField("XP", curxp, true)
   .setFooter(`${difference} XP until level up`, user.displayAvatarURL);
-
   message.channel.send(lvlEmbed);
 
 }
