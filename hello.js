@@ -5,7 +5,6 @@ const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const moment = require('moment');
 const ms = require("ms");
-const fs = require("fs");
 require('moment-duration-format');
 
 client.on(`ready`, () => {
@@ -237,24 +236,24 @@ message.channel.send(`Successfully deleted **${args[0]}** messages.`).then(messa
 
 
 	
-	let xp = require("./xp.json");
+        const db = require("quick.db");
 	let xpAdd = Math.floor(Math.random() * 7) + 8;
 console.log(xpAdd);
 
-if(!xp[message.author.id]) {
-  xp[message.author.id] = {
-    xp: 0,
+if(!db[message.author.id]) {
+  db[message.author.id] = {
+    db: 0,
     level: 1
   };
 }
 
 
-let curxp = xp[message.author.id].xp;
-let curlvl = xp[message.author.id].level;
-let nxtLvl = xp[message.author.id].level * 300;
-xp[message.author.id].xp =  curxp + xpAdd;
-if(nxtLvl <= xp[message.author.id].xp){
-  xp[message.author.id].level = curlvl + 1;
+let curxp = db[message.author.id].db;
+let curlvl = db[message.author.id].level;
+let nxtLvl = db[message.author.id].level * 300;
+db[message.author.id].db =  curxp + xpAdd;
+if(nxtLvl <= db[message.author.id].db){
+  db[message.author.id].level = curlvl + 1;
   let lvlup = new Discord.RichEmbed()
   .setTitle("<:levelup:503391958203629579> You've leveled up! Keep up with the conversations!")
   .setColor("#FFC0CB")
@@ -263,14 +262,14 @@ if(nxtLvl <= xp[message.author.id].xp){
 }
 		
 		if (message.content.toLowerCase().startsWith(`${prefix}level`)) {
-	  if(!xp[message.author.id]){
-    xp[message.author.id] = {
-      xp: 0,
+	  if(!db[message.author.id]){
+    db[message.author.id] = {
+      db: 0,
       level: 1
     };
   }			
-  let curxp = xp[message.author.id].xp;
-  let curlvl = xp[message.author.id].level;
+  let curxp = db[message.author.id].db;
+  let curlvl = db[message.author.id].level;
   let nxtLvlXp =  curlvl * 300;
   let difference = nxtLvlXp - curxp;
   let player = message.mentions.members.first() || message.member
@@ -285,9 +284,6 @@ if(nxtLvl <= xp[message.author.id].xp){
 
 }
 	
-fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-  if(err) console.log(err)
-});
 	
 const blacklisted = ['Nigga', 'Nigger', 'Tranny', 'Cunt', 'Cumdump', 'Cum Dumpster', 'Bitch', 'Feminazi', 'Retarded', 'Whore', 'Slut', 'Hoe', 'Ghetto', 'Ratchet',];
 let foundInText = false;
