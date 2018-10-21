@@ -124,7 +124,7 @@ let result = Math.floor((Math.random() * replies.length));
     .addField('Why are radical feminists so focused on?', `The simple reason this is because of memes and people not taking feminist seriously as it should be. Seeing how most of these people are men who do this it isn't surprising.`, true)
     .addField('Is feminism, BLM (black lives matter), and LGBT+ the same thing?', `Most people who support feminism are most likely a supporter of the LGBT+ or BLM for they all want the same thing in the end, equal rights no matter of gender, sex, creed, or color. But they are also aiming for something different in their own way so while they have a similiar goal, they aren't all the same.`, true)
     .addField('Why should I be a feminist?', `While you don't *need* to be a feminist to believe in equal rights for men and women, having the label as a feminist makes you sound more believable especially with how bad things are right now.`, true)
-    .setImage("https://i.imgur.com/rLMZUPk.png")
+    .setImage("https://i.imgur.com/mi3f0yt.png")
     .setFooter(`${server}`, `${client.user.displayAvatarURL}`)
     .setThumbnail(servericon) 
     .setTimestamp();
