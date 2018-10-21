@@ -175,7 +175,7 @@ message.channel.send(`Successfully deleted ${args[0]} messages.`).then(message =
 
 			
 
-
+}
 }
 
 
