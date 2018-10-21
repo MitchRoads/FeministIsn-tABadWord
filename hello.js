@@ -169,7 +169,7 @@ let result = Math.floor((Math.random() * replies.length));
     let server = message.guild.name;
     let shellicon = "https://i.imgur.com/OOh2U1M.png";
     let feministembed = new Discord.RichEmbed()
-    .setTitle("<:twitch:503366487193681941> Support Us!")
+    .setTitle("<:twitchchannel:503368500979695617> Support Us!")
     .setURL('https://www.paypal.com/donate/?token=k0BhjIcVzvJ9I35z4QQ8ab_JpWcmZLmRVyvWsR5t7YeUJQAmKUvGv-w9Bl7Bpin-pKh0XW&country.x=US&locale.x=US')
     .setDescription(`Links to other social media:`)
     .setColor("#FFC0CB")
