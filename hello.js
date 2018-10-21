@@ -8,7 +8,7 @@ require('moment-duration-format');
 
 client.on(`ready`, () => {
   console.log(`Feminism Is POWER!`);
-client.user.setActivity("All Sides (f!help)", {type: "LISTENING"});
+client.user.setActivity("All Sides | f!help", {type: "LISTENING"});
 
 });
 
@@ -131,7 +131,7 @@ let result = Math.floor((Math.random() * replies.length));
     return message.channel.send(feministembed);
 }	
 	
-		  if (message.content.startsWith(`${prefix}usage`)) {
+		  if (message.content.startsWith(`${prefix}help`)) {
 	let server = message.guild.name;
 	let helpembed = new Discord.RichEmbed()
 	.setTitle(`<:logo:503355691898241024> Help Menu`)
@@ -150,6 +150,7 @@ let result = Math.floor((Math.random() * replies.length));
 	message.channel.send(helpembed);
 	message.react("✅")
 	  }
+	
 	if (message.content.startsWith(`${prefix}ping`)) {
     let msgping1 = new Date();
     let clientping = new Date() - message.createdAt;
@@ -162,6 +163,7 @@ let result = Math.floor((Math.random() * replies.length));
         .setTimestamp()
         .setFooter(`Ping request: ${message.author.tag}`);      
     return message.channel.send(pingembed);
+	}
 });
 	client.on('guildMemberAdd', (member) => {
   let guild = member.guild;
