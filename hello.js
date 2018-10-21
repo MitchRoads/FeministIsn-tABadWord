@@ -144,6 +144,7 @@ let result = Math.floor((Math.random() * replies.length));
 	.addField('❓ `f!help`', "A help menu that provides you with the commands of the bot.")
         .addField('📢 `f!hello`', "Hello! You will get a random hello response.")
 	.addField('<:youtube:503360745480912916> `f!support`', "Did you know that the owner has a youtube and twitch channel amoung a few other things? Go check them out.")
+	.addField('<:level:503390231379050506> `f!level`', "Check fellow members and your level.")
         .addField('🏓 `f!ping`', "Pingggggggg!")
 	.addField('ℹ `f!serverinfo`', `Information about ${server}.`)
 	.addField('✉ `f!serverinvite`', "You will be send an invite to the server.")
@@ -166,11 +167,13 @@ let result = Math.floor((Math.random() * replies.length));
     return message.channel.send(pingembed);
 	}
 		if (message.content.toLowerCase().startsWith(`${prefix}purge`)) {
+	if(!message.member.hasPermission("MANAGE_MESSAGES"))
+return message.channel.send("You don't have the right permissions to do this command.");
 		let args = message.content.split(/ +/g).slice(1)
 	if (isNaN(args[0])) return message.channel.send(`How many messages do you want deleted?`);
 if (args[0] > 100) return message.channel.send(`I can only delete 1 to 100 messages at a time.`);
 message.channel.bulkDelete(args[0]).then(() => {
-message.channel.send(`Successfully deleted ${args[0]} messages.`).then(message => message.delete(5000));
+message.channel.send(`Successfully deleted **${args[0]}** messages.`).then(message => message.delete(5000));
 });
 }
 
@@ -265,7 +268,7 @@ if(nxtLvl <= xp[message.author.id].xp){
       level: 1
     };
   }
-  let xp = require("../xp.json");			
+  let xp = require("./xp.json");			
   let curxp = xp[message.author.id].xp;
   let curlvl = xp[message.author.id].level;
   let nxtLvlXp =  curlvl * 300;
