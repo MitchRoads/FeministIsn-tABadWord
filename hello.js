@@ -268,8 +268,7 @@ if(nxtLvl <= xp[message.author.id].xp){
       xp: 0,
       level: 1
     };
-  }
-  let xp = require("./xp.json");			
+  }			
   let curxp = xp[message.author.id].xp;
   let curlvl = xp[message.author.id].level;
   let nxtLvlXp =  curlvl * 300;
