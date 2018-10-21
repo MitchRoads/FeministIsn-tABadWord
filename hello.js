@@ -330,7 +330,7 @@ client.on('guildMemberRemove', (member) => {
   let rembed = new Discord.RichEmbed()
       .setTitle("User Departure")
       .setColor("#FFC0CB")
-      .setDescription(`${member} has left ${server}.`)
+      .setDescription(`${member} has departed from ${server}.`)
       .setTimestamp();
   logging.send(rembed);
 	      });
