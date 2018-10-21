@@ -236,7 +236,7 @@ message.channel.send(`Successfully deleted **${args[0]}** messages.`).then(messa
 
 
 	
-        const db = require("quick.db");
+        const db = require("better-sqlite3");
 	let xpAdd = Math.floor(Math.random() * 7) + 8;
 if(!db[message.author.id]) {
   db[message.author.id] = {
