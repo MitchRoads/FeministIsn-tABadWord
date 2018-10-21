@@ -304,7 +304,7 @@ client.on('guildMemberRemove', (member) => {
 
 
 client.on('messageDelete', async (message) => {
-    let logging = message.guild.channels.find(c => c.name === 'logging');
+    let logging = message.guild.channels.find(c => c.name === 'logs');
     const dembed = new Discord.RichEmbed()
         .setTitle("Message Deleted")
         .setColor("#FFC0CB")
@@ -316,7 +316,7 @@ client.on('messageDelete', async (message) => {
 
 client.on("messageUpdate", function (oldMessage, newMessage, channel) {
     if (newMessage.channel.type == 'text' && newMessage.cleanContent != oldMessage.cleanContent) {
-        let logging = newMessage.guild.channels.find(c => c.name === 'logging');
+        let logging = newMessage.guild.channels.find(c => c.name === 'logs');
         const upembed = new Discord.RichEmbed()
             .setTitle("Message Edited")
             .setColor("#FFC0CB")
