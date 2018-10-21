@@ -188,7 +188,7 @@ let result = Math.floor((Math.random() * replies.length));
   let guild = member.guild;
   let server = member.guild.name;
   let gembed = new Discord.RichEmbed()
-      .setTitle(`Feminist Isn't A Bad Word's Warm Welcome`)
+      .setTitle(`Welcome to Feminist Isn't A Bad Word`)
       .setColor("#FFC0CB")
       .setDescription(`Welcome to **Feminist Isn't A Bad Word!** Our goal is to keep every avanue of speech open when talking about feminist ideals. We allow anyone to talk and speak! We do not ban though, we do police the server to a point however.  I mean the Nazi sign isn't funny after all. Anyways, make sure if you get accepted into the server to check out the f!definefeminism command to learn about what feminism actually means. And don't forget to read the rules! That is very important.`)
       .setTimestamp();
