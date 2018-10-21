@@ -185,7 +185,7 @@ let result = Math.floor((Math.random() * replies.length));
 }	
 });
 	client.on('guildMemberAdd', (member) => {
-  let user = member.mentions.members.first() 
+  let user = member.mentions.member.first() 
   let guild = member.guild;
   let server = member.guild.name;
   let gembed = new Discord.RichEmbed()
