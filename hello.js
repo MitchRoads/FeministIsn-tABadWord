@@ -190,7 +190,7 @@ let result = Math.floor((Math.random() * replies.length));
   let gembed = new Discord.RichEmbed()
       .setTitle(`Welcome to ${server}!`)
       .setColor("#FFC0CB")
-      .setDescription(`Welcome to feminist Isn't A Bad Word! Our goal is to keep every avanue of speach open when talking about feminist ideals. We allow anyone to talk and speak! We do not ban though we do police the server to an intent.  I mean the 200 Nazi sign isnt funny. Anyways, make sure if you get accepted into the server to check out the f!definefeminism command to learn about what feminism actually means. And don't forget to read the rules! That is very important.`)
+      .setDescription(`Welcome to feminist Isn't A Bad Word! Our goal is to keep every avanue of speach open when talking about feminist ideals. We allow anyone to talk and speak! We do not ban though we do police the server to an intent.  I mean theNazi sign isnt funny. Anyways, make sure if you get accepted into the server to check out the f!definefeminism command to learn about what feminism actually means. And don't forget to read the rules! That is very important.`)
       .setTimestamp();
     member.send(gembed)
 	      });
