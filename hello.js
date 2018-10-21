@@ -195,6 +195,24 @@ let result = Math.floor((Math.random() * replies.length));
    if(tomute.hasPermission("MANAGE_MESSAGES")) 
    return message.channel.send("This user cannot be muted due to either having the same rank as you or higher.");
    let muterole = message.guild.roles.find(r => r.name === "Shushed");
+  if(!muterole){
+  try{
+  muterole = await message.guild.createRole({
+    name: "Shushed",
+    color: "#23272a",
+    permission: []
+  })
+  message.guild.channels.forEach(async (channel, id) => {
+    await channel.overwritePermissions(muterole, {
+      SEND_MESSAGES: false,
+      ADD_REACTIONS: false
+    });
+  });
+
+  }catch(e){
+    console.log(e.stack);
+  }
+}
    await(tomute.addRole(muterole.id));
    let muteaddembed = new Discord.RichEmbed()
    .setDescription(`${user.tag} just got themselves shushed!`)
