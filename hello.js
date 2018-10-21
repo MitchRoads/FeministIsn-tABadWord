@@ -238,8 +238,6 @@ message.channel.send(`Successfully deleted **${args[0]}** messages.`).then(messa
 	
         const db = require("quick.db");
 	let xpAdd = Math.floor(Math.random() * 7) + 8;
-console.log(xpAdd);
-
 if(!db[message.author.id]) {
   db[message.author.id] = {
     db: 0,
