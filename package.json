@@ -15,6 +15,7 @@
     "node-fetch": "^2.2.0",
     "snekfetch": "^4.0.4",
        "quick.db": "6.3.1",
+    "better-sqlite3": "4.1.4",
     "superagent": "^3.8.3",
       "moment": "^2.22.2",
      "moment-duration-format": "^2.2.2"
