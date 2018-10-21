@@ -208,6 +208,18 @@ if(nxtLvl <= xp[message.author.id].xp){
   .addField("New Level!", curlvl + 1);
   message.channel.send(lvlup).then(message => {message.delete(5000)})
 }
+	
+const blacklisted = ['fuck',];
+let foundInText = false;
+ for (var i in blacklisted) {
+  if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+}
+
+
+if (foundInTtext) {
+ message.delete();
+ message.channel.send(`That word is blacklisted!`);
+}
 });
 	client.on('guildMemberAdd', (member) => {
   let user = member.user.tag;
