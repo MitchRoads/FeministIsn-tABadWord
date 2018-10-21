@@ -270,11 +270,12 @@ if(nxtLvl <= xp[message.author.id].xp){
   let curlvl = xp[message.author.id].level;
   let nxtLvlXp =  curlvl * 300;
   let difference = nxtLvlXp - curxp;
-
+  let player = message.mentions.members.first() || message.member
+  let user = player.user
   let lvlEmbed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
+  .setAuthor(`${user.tag}`, `${user.displayAvatarURL}`)
   .setColor("#FFC0CB")
-  .addField("<:level:503390231379050506> Level", curlvl, true)
+  .addField("Level", curlvl, true)
   .addField("XP", curxp, true)
   .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
 
