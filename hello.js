@@ -170,8 +170,8 @@ let result = Math.floor((Math.random() * replies.length));
 	if (isNaN(args[0])) return message.channel.send(`How many messages do you want deleted?`);
 if (args[0] > 100) return message.channel.send(`I can only delete 1 to 100 messages at a time.`);
 message.channel.bulkDelete(args[0])
- .then(message => message.channel.send(`Successfully deleted **\`${message.size}/${args[0]}\`** messages.`).then(message => message.delete({ timeout: 10000 })))
-.catch(error => console.log(`${error.message}`))
+message.channel.send(`Successfully deleted **\`${message.size}/${args[0]}\`** messages.`).then(message => message.delete({ timeout: 10000 })))
+
 			
 
 
