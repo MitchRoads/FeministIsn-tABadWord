@@ -114,7 +114,7 @@ let result = Math.floor((Math.random() * replies.length));
     let server = message.guild.name;
     let servericon = "https://i.imgur.com/mi3f0yt.png";
     let feministembed = new Discord.RichEmbed()
-    .setTitle("<:happy:503338404877172757> Feminism Still Isn't A Bad Word")
+    .setTitle("<:shellhappy:503338404877172757> Feminism Still Isn't A Bad Word")
     .setURL('https://www.merriam-webster.com/dictionary/feminism')
     .setDescription(`Information about Feminism:`)
     .setColor("#FFC0CB")
@@ -131,7 +131,7 @@ let result = Math.floor((Math.random() * replies.length));
     return message.channel.send(feministembed);
 }	
 	
-		  if (message.content.startsWith(`${prefix}help`)) {
+		  if (message.content.toLowerCase().startsWith(`${prefix}help`)) {
 	let server = message.guild.name;
 	let helpembed = new Discord.RichEmbed()
 	.setTitle(`<:logo:503355691898241024> Help Menu`)
@@ -139,9 +139,10 @@ let result = Math.floor((Math.random() * replies.length));
 	.setColor("#FFC0CB") 
         .addField('👩 `f!avatar`', "The avatar of a user displays after using this command.")
         .addField('🤖 `f!botinfo`', "Information on our server bot.")
-        .addField('<:happy:503338404877172757> `f!definefeminism`', "Learn about feminism, that is the point of this server after all.")
+        .addField('<:shellhappy:503338404877172757> `f!definefeminism`', "Learn about feminism, that is the point of this server after all.")
 	.addField('❓ `f!help`', "A help menu that provides you with the commands of the bot.")
         .addField('📢 `f!hello`', "Hello! You will get a random hello response.")
+	.addField('<:youtube:503360745480912916> `f!support`', "Did you know we have a youtube and twitch channel amoung a few other things? Go check them out.")
         .addField('🏓 `f!ping`', "Pingggggggg!")
 	.addField('ℹ `f!serverinfo`', `Information about ${server}.`)
 	.addField('✉ `f!serverinvite`', "You will be send an invite to the server.")
@@ -151,18 +152,37 @@ let result = Math.floor((Math.random() * replies.length));
 	message.react("✅")
 	  }
 	
-	if (message.content.startsWith(`${prefix}ping`)) {
+	if (message.content.toLowerCase().startsWith(`${prefix}ping`)) {
     let msgping1 = new Date();
     let clientping = new Date() - message.createdAt;
     let msgping2 = new Date() - msgping1;
     let pingembed = new Discord.RichEmbed()
        .setColor("#FFC0CB")
-        .addField('🏓 Ping:', Math.floor(client.ping) + 'ms')
+        .addField('🏓 Your Ping:', Math.floor(client.ping) + 'ms')
         .addField('🏓 Bot Ping:', Math.floor(clientping) + 'ms')
         .setTimestamp()
         .setFooter(`Ping request: ${message.author.tag}`);      
     return message.channel.send(pingembed);
 	}
+	
+		if (message.content.toLowerCase().startsWith(`${prefix}support`)) {
+    let server = message.guild.name;
+    let shellicon = "https://i.imgur.com/OOh2U1M.png";
+    let feministembed = new Discord.RichEmbed()
+    .setTitle("<:shellhappy:503338404877172757> Support Us!")
+    .setUrl("https://www.paypal.com/donate/?token=k0BhjIcVzvJ9I35z4QQ8ab_JpWcmZLmRVyvWsR5t7YeUJQAmKUvGv-w9Bl7Bpin-pKh0XW&country.x=US&locale.x=US")
+    .setDescription(`Links to our other social media:`)
+    .setColor("#FFC0CB")
+    .addField(`ShellNotSpeak's Youtube Channel`, `https://www.youtube.com/user/MissNeeNeeCO/featured`, true)
+    .addField(`ShellNotSpeak's Twitch Channel`, `https://www.twitch.tv/neeneeco`, true)
+    .addField(`ShellNotSpeak's Twitch Server`, `https://app.twitch.tv/invite/ZzhWSI`, true)
+    .addField('Patreon', `https://www.patreon.com/ShellNotSpeak`, true)
+    .addField('Donations', `Press on Support Us to get to our paypal! Thanks in advance. <:shellhappy:503338404877172757>` , true)
+    .setFooter(`${server}`, `${shellicon}`)
+    .setThumbnail(shellicon) 
+    .setTimestamp();
+    return message.channel.send(feministembed);
+}	
 });
 	client.on('guildMemberAdd', (member) => {
   let guild = member.guild;
