@@ -5,6 +5,7 @@ const config = require('./botconfig.json');
 const { prefix, token } = require('./botconfig.json');
 const moment = require('moment');
 const ms = require("ms");
+const fs = require("fs");
 require('moment-duration-format');
 
 client.on(`ready`, () => {
@@ -284,6 +285,10 @@ if(nxtLvl <= xp[message.author.id].xp){
   message.channel.send(lvlEmbed);
 
 }
+	
+fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+  if(err) console.log(err)
+});
 	
 const blacklisted = ['Nigga', 'Nigger', 'Tranny', 'Cunt', 'Cumdump', 'Cum Dumpster', 'Bitch', 'Feminazi', 'Retarded', 'Whore', 'Slut', 'Hoe', 'Ghetto', 'Ratchet',];
 let foundInText = false;
