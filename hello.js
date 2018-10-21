@@ -209,7 +209,7 @@ if(nxtLvl <= xp[message.author.id].xp){
   message.channel.send(lvlup).then(message => {message.delete(5000)})
 }
 	
-const blacklisted = ['nigga',];
+const blacklisted = ['Nigga',];
 let foundInText = false;
  for (var i in blacklisted) {
   if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
