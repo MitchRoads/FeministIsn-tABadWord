@@ -171,7 +171,9 @@ let result = Math.floor((Math.random() * replies.length));
 if (args[0] > 100) return message.channel.send(`I can only delete 1 to 100 messages at a time.`);
 message.channel.bulkDelete(args[0])
  .then(message => message.channel.send(`Successfully deleted **\`${message.size}/${args[0]}\`** messages.`).then(message => message.delete({ timeout: 10000 })))
-.catch(error => message.channel.send(`**ERROR** ${error.message}`));
+.catch(error => console.log(`${error.message}`)
+			
+
 
 }
 
@@ -266,7 +268,7 @@ if(nxtLvl <= xp[message.author.id].xp){
       level: 1
     };
   }
-			
+  let xp = require("../xp.json");			
   let curxp = xp[message.author.id].xp;
   let curlvl = xp[message.author.id].level;
   let nxtLvlXp =  curlvl * 300;
@@ -274,11 +276,11 @@ if(nxtLvl <= xp[message.author.id].xp){
   let player = message.mentions.members.first() || message.member
   let user = player.user
   let lvlEmbed = new Discord.RichEmbed()
-  .setAuthor(`${user.tag}`, `${user.displayAvatarURL}`)
+  .setAuthor(`${user.tag}'s Level & XP`, `${user.displayAvatarURL}`)
   .setColor("#FFC0CB")
   .addField("Level", curlvl, true)
   .addField("XP", curxp, true)
-  .setFooter(`${difference} XP til level up`, user.displayAvatarURL);
+  .setFooter(`${difference} XP until level up`, user.displayAvatarURL);
 
   message.channel.send(lvlEmbed);
 
